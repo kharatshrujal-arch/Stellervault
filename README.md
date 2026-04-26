@@ -44,19 +44,39 @@ The app is fully responsive with breakpoints at:
 - **768px** — Stacked header, mobile navigation
 - **480px** — Compact buttons, smaller text
 
+## 📱 Mobile Responsive
+
+The app is fully responsive with breakpoints at:
+- **1024px** — Single column layout
+- **768px** — Stacked header, mobile navigation
+- **480px** — Compact buttons, smaller text
+
 ### 📸 Screenshots: Mobile Responsive View
 
-| Wallet Connect | Send XLM | SVT Token |
-|:-:|:-:|:-:|
-| ![Mobile Wallet Connect](screenshots/mobile/mobile-wallet-connect.jpg) | ![Mobile Send](screenshots/mobile/mobile-send.jpg) | ![Mobile Token](screenshots/mobile/mobile-token.jpg) |
-| *Multi-wallet connect on mobile* | *Send XLM — mobile view* | *SVT Token panel on mobile* |
+#### 📲 Wallet Connect — Mobile
+> Multi-wallet connection screen on mobile with Freighter & Public Key options
 
-| Liquidity Pool | Live Events |
-|:-:|:-:|
-| ![Mobile Liquidity Pool](screenshots/mobile/mobile-liquidity-pool.jpg) | ![Mobile Live Events](screenshots/mobile/mobile-live-events.jpg) |
-| *Liquidity Pool & Balance — mobile view* | *Live Events streaming — mobile view* |
+![Mobile Wallet Connect](screenshots/mobile/mobile-wallet-connect.jpg)
 
----
+#### 📲 Dashboard / Send XLM — Mobile
+> Send XLM transaction form on mobile
+
+![Mobile Send](screenshots/mobile/mobile-send.jpg)
+
+#### 📲 SVT Token — Mobile
+> SVT Token panel and balance view on mobile
+
+![Mobile Token](screenshots/mobile/mobile-token.jpg)
+
+#### 📲 Liquidity Pool — Mobile
+> Liquidity Pool and Balance sections on mobile
+
+![Mobile Liquidity Pool](screenshots/mobile/mobile-liquidity-pool.jpg)
+
+#### 📲 Live Events — Mobile
+> Real-time event streaming panel on mobile
+
+![Mobile Live Events](screenshots/mobile/mobile-live-events.jpg)
 
 
 ## 🏗️ Architecture
