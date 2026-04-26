@@ -7,8 +7,10 @@
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-green?logo=github-actions)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&style=flat)](https://stellar-vault-d-app.vercel.app)
 
----
+> 🚀 **[Live Deployment → stellar-vault-d-app.vercel.app](https://stellar-vault-d-app.vercel.app)**
+
 
 ## 📸 Screenshots
 
