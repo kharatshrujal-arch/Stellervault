@@ -1,0 +1,10 @@
+﻿1c3750d docs: add CI/CD pipeline (GitHub Actions) and comprehensive README with architecture, setup, and deployment guide
+9880df1 test: add comprehensive test suite - 26 tests across utils, WalletContext, WalletConnect, and SendTransaction
+513ec2e feat: assemble main App with tab navigation, WalletProvider, and responsive page layouts
+cf5ba29 feat: add Soroban smart contracts - SVT Token (mint/transfer/approve) and Liquidity Pool AMM with inter-contract calls
+a8b4a2f feat: add TokenPanel for SVT mint/transfer and PoolPanel with AMM swap, deposit, and inter-contract calls
+627b52e feat: add core UI components - WalletConnect, BalanceCard, SendTransaction, EventLog with real-time streaming
+9a13106 feat: implement multi-wallet context (Freighter + manual key) with balance polling and event streaming hooks
+dfd8e78 feat: add error handling system with NetworkError, InsufficientFundsError, ContractError and utility helpers
+729a859 feat: add premium dark theme design system with glassmorphism, animations, and mobile responsiveness
+ee24f9f feat: initialize StellarVault project with Vite + React and Stellar SDK dependencies

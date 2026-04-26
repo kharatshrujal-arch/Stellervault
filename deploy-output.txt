@@ -1,0 +1,50 @@
+﻿============================================================
+  StellarVault ΓÇö Testnet Deployment
+============================================================
+
+≡ƒôï Deployer Account:
+   Public Key:  GBV6GP2INFWDWAKPMWQKG2H4JFZ3GYDZRG2X2KYT6Z3DXV6IB6LGLQBO
+   Secret Key:  SBBDKIWBRBWEO3XKX5CLX6YS6BJ3JRPXYCKEGIIL5RWCCG7KWVR2ZLJM
+
+≡ƒÜ░ Funding account via Friendbot...
+   Γ£ô Account funded with 10,000 XLM
+
+≡ƒ¬Ö Creating SVT Token (Stellar Asset)...
+   Issuer Public Key: GBI67VYGWZPT6QLX6SIDKUJFPDMBEAWTD2A2EKHLOR53UGEKGIRXGMFG
+   Γ£ô Issuer account funded
+   Γ£ô Trustline created. Tx: c609c909d994303bd6d97171de062f00540a9ce8edae6615def51f31d28025aa
+   Γ£ô Minted 1,000,000 SVT to deployer. Tx: f1cda87d0d08d279b0a0dd05ced9e21fdf3f8548495e8c1ef8081d8cc1e451a0
+
+≡ƒîè Creating XLM/SVT Liquidity Pool...
+   Pool ID: 53f9129e45ce988281ead043f8fcaf488956d6c049c9ac33cb31f24c85c43301
+   Γ£ô LP trustline created
+   Γ£ô Deposited 500 XLM + 5000 SVT into pool. Tx: 0da5f989d044de77d3277777378b29959697e9386500d67239a5b5c79c98dd12
+
+≡ƒöä Executing a test swap (XLM ΓåÆ SVT)...
+   Γ£ô Swapped 10 XLM for SVT. Tx: 5cb39f7d80d8534c25ae1c7ab09926cd54310d1234a1eb1da655aed0d6dd4138
+
+============================================================
+  Γ£à DEPLOYMENT COMPLETE
+============================================================
+
+≡ƒôï ADDRESSES & HASHES (add to README):
+
+≡ƒ¬Ö SVT Token:
+   Issuer:          GBI67VYGWZPT6QLX6SIDKUJFPDMBEAWTD2A2EKHLOR53UGEKGIRXGMFG
+   Asset Code:      SVT
+   Mint Tx Hash:    f1cda87d0d08d279b0a0dd05ced9e21fdf3f8548495e8c1ef8081d8cc1e451a0
+   Explorer:        https://stellar.expert/explorer/testnet/asset/SVT-GBI67VYGWZPT6QLX6SIDKUJFPDMBEAWTD2A2EKHLOR53UGEKGIRXGMFG
+
+≡ƒîè Liquidity Pool:
+   Pool ID:         53f9129e45ce988281ead043f8fcaf488956d6c049c9ac33cb31f24c85c43301
+   Deposit Tx Hash: 0da5f989d044de77d3277777378b29959697e9386500d67239a5b5c79c98dd12
+   Explorer:        https://stellar.expert/explorer/testnet/liquidity-pool/53f9129e45ce988281ead043f8fcaf488956d6c049c9ac33cb31f24c85c43301
+
+≡ƒöä Swap Transaction:
+   Tx Hash:         5cb39f7d80d8534c25ae1c7ab09926cd54310d1234a1eb1da655aed0d6dd4138
+   Explorer:        https://stellar.expert/explorer/testnet/tx/5cb39f7d80d8534c25ae1c7ab09926cd54310d1234a1eb1da655aed0d6dd4138
+
+≡ƒæñ Deployer Account:
+   Public Key:      GBV6GP2INFWDWAKPMWQKG2H4JFZ3GYDZRG2X2KYT6Z3DXV6IB6LGLQBO
+   Explorer:        https://stellar.expert/explorer/testnet/account/GBV6GP2INFWDWAKPMWQKG2H4JFZ3GYDZRG2X2KYT6Z3DXV6IB6LGLQBO
+
