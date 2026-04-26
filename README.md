@@ -37,6 +37,27 @@
 
 ---
 
+## 📱 Mobile Responsive
+
+The app is fully responsive with breakpoints at:
+- **1024px** — Single column layout
+- **768px** — Stacked header, mobile navigation
+- **480px** — Compact buttons, smaller text
+
+### 📸 Screenshots: Mobile Responsive View
+
+| Wallet Connect | Send XLM | SVT Token |
+|:-:|:-:|:-:|
+| ![Mobile Wallet Connect](screenshots/mobile/mobile-wallet-connect.jpg) | ![Mobile Send](screenshots/mobile/mobile-send.jpg) | ![Mobile Token](screenshots/mobile/mobile-token.jpg) |
+| *Multi-wallet connect on mobile* | *Send XLM — mobile view* | *SVT Token panel on mobile* |
+
+| Liquidity Pool | Live Events |
+|:-:|:-:|
+| ![Mobile Liquidity Pool](screenshots/mobile/mobile-liquidity-pool.jpg) | ![Mobile Live Events](screenshots/mobile/mobile-live-events.jpg) |
+| *Liquidity Pool & Balance — mobile view* | *Live Events streaming — mobile view* |
+
+---
+
 
 ## 🏗️ Architecture
 
@@ -194,15 +215,6 @@ GitHub Actions pipeline runs on every push to `main`:
 4. **Artifact Upload** — Build artifacts saved for 7 days
 
 See `.github/workflows/ci.yml`
-
----
-
-## 📱 Mobile Responsive
-
-The app is fully responsive with breakpoints at:
-- **1024px** — Single column layout
-- **768px** — Stacked header, mobile navigation
-- **480px** — Compact buttons, smaller text
 
 ---
 
