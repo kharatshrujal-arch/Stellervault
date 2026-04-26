@@ -11,6 +11,12 @@
 
 > 🚀 **[Live Deployment → stellar-vault-d-app.vercel.app](https://stellar-vault-d-app.vercel.app)**
 
+### 📱 Open on Mobile — Scan QR Code
+
+[![QR Code — scan to open on mobile](https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://stellar-vault-d-app.vercel.app&color=000000&bgcolor=ffffff&margin=10)](https://stellar-vault-d-app.vercel.app)
+
+> Point your phone camera at the QR code above to instantly open the live app on mobile.
+
 
 ## 📸 Screenshots
 
