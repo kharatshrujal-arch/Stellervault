@@ -6,7 +6,8 @@
 ![Soroban](https://img.shields.io/badge/Soroban-Smart_Contracts-purple)
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-green?logo=github-actions)
+[![CI](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml)
+[![Deploy](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&style=flat)](https://stellar-vault-d-app.vercel.app)
 
 > 🚀 **[Live Deployment → stellar-vault-d-app.vercel.app](https://stellar-vault-d-app.vercel.app)**
@@ -17,6 +18,8 @@
 
 > Point your phone camera at the QR code above to instantly open the live app on mobile.
 
+
+---
 
 ## 📸 Screenshots
 
@@ -36,47 +39,6 @@
 ![Liquidity Pool](screenshots/liquidity-pool.png)
 
 ---
-
-## 📱 Mobile Responsive
-
-The app is fully responsive with breakpoints at:
-- **1024px** — Single column layout
-- **768px** — Stacked header, mobile navigation
-- **480px** — Compact buttons, smaller text
-
-## 📱 Mobile Responsive
-
-The app is fully responsive with breakpoints at:
-- **1024px** — Single column layout
-- **768px** — Stacked header, mobile navigation
-- **480px** — Compact buttons, smaller text
-
-### 📸 Screenshots: Mobile Responsive View
-
-#### 📲 Wallet Connect — Mobile
-> Multi-wallet connection screen on mobile with Freighter & Public Key options
-
-![Mobile Wallet Connect](screenshots/mobile/mobile-wallet-connect.jpg)
-
-#### 📲 Dashboard / Send XLM — Mobile
-> Send XLM transaction form on mobile
-
-![Mobile Send](screenshots/mobile/mobile-send.jpg)
-
-#### 📲 SVT Token — Mobile
-> SVT Token panel and balance view on mobile
-
-![Mobile Token](screenshots/mobile/mobile-token.jpg)
-
-#### 📲 Liquidity Pool — Mobile
-> Liquidity Pool and Balance sections on mobile
-
-![Mobile Liquidity Pool](screenshots/mobile/mobile-liquidity-pool.jpg)
-
-#### 📲 Live Events — Mobile
-> Real-time event streaming panel on mobile
-
-![Mobile Live Events](screenshots/mobile/mobile-live-events.jpg)
 
 
 ## 🏗️ Architecture
@@ -227,14 +189,62 @@ All errors are auto-classified from raw exceptions via `classifyError()`.
 
 ## 🔄 CI/CD
 
-GitHub Actions pipeline runs on every push to `main`:
+[![CI](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml)
+[![Deploy](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml)
+[![Security Audit](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml)
+[![Soroban Tests](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml)
 
-1. **Lint** — ESLint with React plugin
-2. **Test** — Vitest with 14+ tests
-3. **Build** — Vite production build
-4. **Artifact Upload** — Build artifacts saved for 7 days
+Four GitHub Actions pipelines are configured and run automatically:
 
-See `.github/workflows/ci.yml`
+### 🧪 [CI Workflow](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml) — push & PR to `main`
+
+| Step | Details |
+|------|---------|
+| **Lint** | ESLint with React plugin |
+| **Test** | Vitest — 14+ unit tests |
+| **Build** | Vite production build |
+| **Smart Contract Tests** | `cargo test` for `token` & `pool` Soroban contracts |
+| **Artifact Upload** | Build artifacts saved for 7 days |
+
+### 🚀 [Deploy Workflow](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml) — push to `main`
+
+| Step | Details |
+|------|---------|
+| **Build** | Vite production build |
+| **Deploy** | Vercel production deployment via Vercel CLI |
+| **PR Comment** | Deployment URL posted as PR comment |
+
+### 🔒 [Security Audit](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml) — push, PR & weekly schedule
+
+| Step | Details |
+|------|---------|
+| **npm audit** | Scans for high & critical npm vulnerabilities |
+| **CodeQL** | Static analysis for JavaScript security issues |
+| **cargo-audit** | Rust dependency vulnerability scan for both contracts |
+
+### ⛓️ [Soroban Contract Tests](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml) — triggered on `contracts/**` changes
+
+| Step | Details |
+|------|---------|
+| **Token Tests** | Full test suite for the custom token contract |
+| **Pool Tests** | Full test suite for the liquidity pool contract |
+| **WASM Build** | Compiles contracts to `wasm32-unknown-unknown` |
+| **WASM Artifact** | Uploads compiled `.wasm` files for 7 days |
+
+> 📂 Workflow files: [ci.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/ci.yml) · [deploy.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/deploy.yml) · [security.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/security.yml) · [soroban-test.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/soroban-test.yml)
+
+---
+
+## 📱 Mobile Responsive
+
+The app is fully responsive with breakpoints at:
+- **1024px** — Single column layout
+- **768px** — Stacked header, mobile navigation
+- **480px** — Compact buttons, smaller text
+
+### 📸 Screenshots: Mobile Responsive View
+
+> 📄 View all mobile screenshots → **[MOBILE_SCREENSHOTS.md](MOBILE_SCREENSHOTS.md)**
 
 ---
 
@@ -290,6 +300,8 @@ stellar-vault/
 ---
 
 ## 🎬 Demo
+
+🌐 **Live App:** [https://stellar-vault-d-app.vercel.app](https://stellar-vault-d-app.vercel.app)
 
 See the [Screenshots](#-screenshots) section above for a visual walkthrough of the app.
 
