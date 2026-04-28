@@ -6,11 +6,12 @@
 ![Soroban](https://img.shields.io/badge/Soroban-Smart_Contracts-purple)
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite)
+
 [![CI](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml)
 [![Deploy](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml)
 [![Security Audit](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml)
 [![Soroban Tests](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&style=flat)](https://stellar-vault-d-app.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://stellar-vault-d-app.vercel.app)
 
 ---
 
@@ -168,10 +169,10 @@ npx vitest run --coverage
 
 | File | Tests | Description |
 |------|-------|-------------|
-| `utils.test.js` | 12 | Address validation, balance formatting, error classification |
-| `WalletContext.test.jsx` | 3 | Context provider, initial state, error boundaries |
-| `WalletConnect.test.jsx` | 3 | Connect UI, wallet options, button rendering |
-| `SendTransaction.test.jsx` | 3+ | Form rendering, disabled states, validation |
+| `utils.test.js` | 16 | Address validation, balance formatting, explorer URLs, error classification |
+| `WalletContext.test.jsx` | 3 | Provider initial state, context values, error boundaries |
+| `WalletConnect.test.jsx` | 3 | Connect UI, wallet options, button IDs |
+| `SendTransaction.test.jsx` | 4 | Component rendering, connect prompts, styled card UI |
 
 ---
 
@@ -203,7 +204,7 @@ Four GitHub Actions pipelines are configured and run automatically:
 | Step | Details |
 |------|---------|
 | **Lint** | ESLint with React plugin |
-| **Test** | Vitest — 14+ unit tests |
+| **Test** | Vitest — 26 unit tests |
 | **Build** | Vite production build |
 | **Smart Contract Tests** | `cargo test` for `token` & `pool` Soroban contracts |
 | **Artifact Upload** | Build artifacts saved for 7 days |
@@ -253,7 +254,7 @@ The app is fully responsive with breakpoints at:
 ## 📁 Project Structure
 
 ```
-stellar-vault/
+StellarVault-dApp/
 ├── contracts/                    # Soroban smart contracts (Rust)
 │   ├── token/src/lib.rs          # SVT Token contract
 │   ├── pool/src/lib.rs           # Liquidity Pool contract
@@ -336,4 +337,5 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 Built with ❤️ on the [Stellar Network](https://stellar.org)
+
 
