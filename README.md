@@ -6,18 +6,18 @@
 ![Soroban](https://img.shields.io/badge/Soroban-Smart_Contracts-purple)
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite)
-[![CI](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml)
-[![Deploy](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml)
+[![CI](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/ci.yml)
+[![Deploy](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/deploy.yml)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&style=flat)](https://stellar-vault-d-app.vercel.app)
 
-> 🚀 **[Live Deployment → stellar-vault-d-app.vercel.app](https://stellar-vault-d-app.vercel.app)**
+---
 
-### 📱 Open on Mobile — Scan QR Code
+### 🚀 [Live Deployment → stellar-vault-d-app.vercel.app](https://stellar-vault-d-app.vercel.app)
 
-[![QR Code — scan to open on mobile](https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://stellar-vault-d-app.vercel.app&color=000000&bgcolor=ffffff&margin=10)](https://stellar-vault-d-app.vercel.app)
+#### 📱 Scan to Open on Mobile
+[![QR Code — scan to open on mobile](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://stellar-vault-d-app.vercel.app&color=000000&bgcolor=ffffff&margin=10)](https://stellar-vault-d-app.vercel.app)
 
-> Point your phone camera at the QR code above to instantly open the live app on mobile.
-
+> Point your phone camera at the QR code to instantly open the live app.
 
 ---
 
@@ -83,7 +83,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/stellar-vault.git
+git clone https://github.com/shritesh263/StellarVault-dApp.git
 cd stellar-vault
 
 # Install dependencies
@@ -189,14 +189,14 @@ All errors are auto-classified from raw exceptions via `classifyError()`.
 
 ## 🔄 CI/CD
 
-[![CI](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml)
-[![Deploy](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml)
-[![Security Audit](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml)
-[![Soroban Tests](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml/badge.svg)](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml)
+[![CI](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/ci.yml/badge.svg)](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/ci.yml)
+[![Deploy](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/deploy.yml)
+[![Security Audit](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/security.yml/badge.svg)](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/security.yml)
+[![Soroban Tests](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/soroban-test.yml/badge.svg)](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/soroban-test.yml)
 
 Four GitHub Actions pipelines are configured and run automatically:
 
-### 🧪 [CI Workflow](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/ci.yml) — push & PR to `main`
+### 🧪 [CI Workflow](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/ci.yml) — push & PR to `main`
 
 | Step | Details |
 |------|---------|
@@ -206,7 +206,7 @@ Four GitHub Actions pipelines are configured and run automatically:
 | **Smart Contract Tests** | `cargo test` for `token` & `pool` Soroban contracts |
 | **Artifact Upload** | Build artifacts saved for 7 days |
 
-### 🚀 [Deploy Workflow](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/deploy.yml) — push to `main`
+### 🚀 [Deploy Workflow](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/deploy.yml) — push to `main`
 
 | Step | Details |
 |------|---------|
@@ -214,7 +214,7 @@ Four GitHub Actions pipelines are configured and run automatically:
 | **Deploy** | Vercel production deployment via Vercel CLI |
 | **PR Comment** | Deployment URL posted as PR comment |
 
-### 🔒 [Security Audit](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/security.yml) — push, PR & weekly schedule
+### 🔒 [Security Audit](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/security.yml) — push, PR & weekly schedule
 
 | Step | Details |
 |------|---------|
@@ -222,7 +222,7 @@ Four GitHub Actions pipelines are configured and run automatically:
 | **CodeQL** | Static analysis for JavaScript security issues |
 | **cargo-audit** | Rust dependency vulnerability scan for both contracts |
 
-### ⛓️ [Soroban Contract Tests](https://github.com/ManoharKalel15/StellarVault-dApp/actions/workflows/soroban-test.yml) — triggered on `contracts/**` changes
+### ⛓️ [Soroban Contract Tests](https://github.com/shritesh263/StellarVault-dApp/actions/workflows/soroban-test.yml) — triggered on `contracts/**` changes
 
 | Step | Details |
 |------|---------|
@@ -231,7 +231,7 @@ Four GitHub Actions pipelines are configured and run automatically:
 | **WASM Build** | Compiles contracts to `wasm32-unknown-unknown` |
 | **WASM Artifact** | Uploads compiled `.wasm` files for 7 days |
 
-> 📂 Workflow files: [ci.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/ci.yml) · [deploy.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/deploy.yml) · [security.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/security.yml) · [soroban-test.yml](https://github.com/ManoharKalel15/StellarVault-dApp/blob/main/.github/workflows/soroban-test.yml)
+> 📂 Workflow files: [ci.yml](https://github.com/shritesh263/StellarVault-dApp/blob/main/.github/workflows/ci.yml) · [deploy.yml](https://github.com/shritesh263/StellarVault-dApp/blob/main/.github/workflows/deploy.yml) · [security.yml](https://github.com/shritesh263/StellarVault-dApp/blob/main/.github/workflows/security.yml) · [soroban-test.yml](https://github.com/shritesh263/StellarVault-dApp/blob/main/.github/workflows/soroban-test.yml)
 
 ---
 
