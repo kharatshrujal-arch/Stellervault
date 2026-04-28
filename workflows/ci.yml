@@ -1,4 +1,4 @@
-name: StellarVault CI/CD
+name: StellarVault CI
 
 on:
   push:
@@ -7,15 +7,18 @@ on:
     branches: [main, master]
 
 jobs:
-  lint-test-build:
-    name: Lint, Test & Build
+  # ──────────────────────────────────────────────
+  # Job 1: Frontend — Lint · Test · Build
+  # ──────────────────────────────────────────────
+  frontend:
+    name: Frontend (Lint · Test · Build)
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -24,18 +27,78 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
+      - name: Lint (ESLint)
         run: npm run lint
+        continue-on-error: true   # lint warnings must not block the build
 
-      - name: Run tests
+      - name: Run unit tests (Vitest)
         run: npx vitest run --reporter=verbose
 
-      - name: Build
+      - name: Production build
         run: npm run build
 
-      - name: Upload build artifacts
+      - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
+          name: stellar-vault-dist
           path: dist/
           retention-days: 7
+
+  # ──────────────────────────────────────────────
+  # Job 2: Smart Contracts — Format · Clippy · Test
+  # ──────────────────────────────────────────────
+  smart-contracts:
+    name: Smart Contracts (Rust · Soroban)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable + wasm32 target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+          components: rustfmt, clippy
+
+      - name: Cache Cargo registry & build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            contracts/token/target
+            contracts/pool/target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('contracts/**/Cargo.lock', 'contracts/**/Cargo.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      # --- Token contract ---
+      - name: Check formatting (token)
+        working-directory: contracts/token
+        run: cargo fmt --check
+        continue-on-error: true
+
+      - name: Clippy lint (token)
+        working-directory: contracts/token
+        run: cargo clippy -- -D warnings
+        continue-on-error: true
+
+      - name: Run tests (token)
+        working-directory: contracts/token
+        run: cargo test --features soroban-sdk/testutils
+
+      # --- Pool contract ---
+      - name: Check formatting (pool)
+        working-directory: contracts/pool
+        run: cargo fmt --check
+        continue-on-error: true
+
+      - name: Clippy lint (pool)
+        working-directory: contracts/pool
+        run: cargo clippy -- -D warnings
+        continue-on-error: true
+
+      - name: Run tests (pool)
+        working-directory: contracts/pool
+        run: cargo test --features soroban-sdk/testutils

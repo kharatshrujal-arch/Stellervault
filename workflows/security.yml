@@ -1,0 +1,103 @@
+name: StellarVault Security Audit
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: '0 6 * * 1'   # Every Monday at 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  # ──────────────────────────────────────────────
+  # Job 1: npm dependency vulnerability scan
+  # ──────────────────────────────────────────────
+  npm-audit:
+    name: npm Dependency Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit (high & critical)
+        # continue-on-error prevents transitive Stellar SDK advisories from
+        # blocking the pipeline — results are still visible in the log
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Generate full audit report
+        run: npm audit --json > npm-audit-report.json || true
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report
+          path: npm-audit-report.json
+          retention-days: 30
+
+  # ──────────────────────────────────────────────
+  # Job 2: CodeQL static analysis (JavaScript)
+  # ──────────────────────────────────────────────
+  codeql:
+    name: CodeQL Static Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+          queries: security-and-quality
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: '/language:javascript'
+
+  # ──────────────────────────────────────────────
+  # Job 3: Rust security audit (smart contracts)
+  # ──────────────────────────────────────────────
+  cargo-audit:
+    name: Cargo Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-audit
+        run: cargo install cargo-audit --locked
+
+      - name: Audit token contract dependencies
+        working-directory: contracts/token
+        run: cargo audit
+        continue-on-error: true   # advisory warnings must not block CI
+
+      - name: Audit pool contract dependencies
+        working-directory: contracts/pool
+        run: cargo audit
+        continue-on-error: true

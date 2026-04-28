@@ -1,0 +1,95 @@
+name: StellarVault Soroban Contract Tests
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'contracts/**'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'contracts/**'
+  workflow_dispatch:
+
+jobs:
+  # ──────────────────────────────────────────────
+  # Job 1: Token contract — full test suite
+  # ──────────────────────────────────────────────
+  token-contract:
+    name: Token Contract Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable + wasm32 target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache Cargo (token)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            contracts/token/target
+          key: ${{ runner.os }}-token-${{ hashFiles('contracts/token/Cargo.toml') }}
+          restore-keys: ${{ runner.os }}-token-
+
+      - name: Run token contract tests
+        working-directory: contracts/token
+        run: cargo test --features soroban-sdk/testutils -- --nocapture
+
+      - name: Build token contract (WASM)
+        working-directory: contracts/token
+        run: cargo build --target wasm32-unknown-unknown --release
+
+      - name: Upload token WASM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: token-contract-wasm
+          path: contracts/token/target/wasm32-unknown-unknown/release/*.wasm
+          retention-days: 7
+
+  # ──────────────────────────────────────────────
+  # Job 2: Pool contract — full test suite
+  # ──────────────────────────────────────────────
+  pool-contract:
+    name: Pool Contract Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable + wasm32 target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache Cargo (pool)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            contracts/pool/target
+          key: ${{ runner.os }}-pool-${{ hashFiles('contracts/pool/Cargo.toml') }}
+          restore-keys: ${{ runner.os }}-pool-
+
+      - name: Run pool contract tests
+        working-directory: contracts/pool
+        run: cargo test --features soroban-sdk/testutils -- --nocapture
+
+      - name: Build pool contract (WASM)
+        working-directory: contracts/pool
+        run: cargo build --target wasm32-unknown-unknown --release
+
+      - name: Upload pool WASM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pool-contract-wasm
+          path: contracts/pool/target/wasm32-unknown-unknown/release/*.wasm
+          retention-days: 7
